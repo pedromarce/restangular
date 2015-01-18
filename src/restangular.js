@@ -233,13 +233,17 @@ module.provider('Restangular', function() {
       return angular.copy(idValue);
     };
 
+    config.getFieldId = function(elem) {
+      return config.restangularFields.id;
+    };
+      
     config.setIdToElem = function(elem, id /*, route */) {
-      config.setFieldToElem(config.restangularFields.id, elem, id);
+      config.setFieldToElem(config.getFieldId(elem), elem, id);
       return this;
     };
 
     config.getIdFromElem = function(elem) {
-      return config.getFieldFromElem(config.restangularFields.id, elem);
+      return config.getFieldFromElem(config.getFieldId(elem), elem);
     };
 
     config.isValidId = function(elemId) {
